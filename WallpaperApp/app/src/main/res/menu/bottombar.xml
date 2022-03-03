@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/images"
+        android:icon="@drawable/ic_images_foreground"
+        app:showAsAction="always"
+        android:id="@+id/images_icon"/>
+    <item
+        android:title="@string/favourites"
+        android:icon="@drawable/ic_favourites_foreground"
+        app:showAsAction="always"
+        android:id="@+id/favourites_icon"/>
+    <item
+        android:title="@string/search"
+        android:icon="@drawable/ic_imagesearch_foreground"
+        app:showAsAction="ifRoom"
+        android:id="@+id/search_images_icon"/>
+
+</menu>
