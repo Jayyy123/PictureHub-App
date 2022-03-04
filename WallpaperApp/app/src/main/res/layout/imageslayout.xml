@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_weight="4"
+        android:id="@+id/imgholder"
+        android:src="@drawable/user"/>
+
+    <TextView
+        android:id="@+id/decription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:text="refinrfnrk rkr "
+        android:textSize="50sp"/>
+
+
+</LinearLayout>

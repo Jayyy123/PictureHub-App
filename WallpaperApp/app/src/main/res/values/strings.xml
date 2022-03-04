@@ -10,4 +10,7 @@
     <string name="settings">Settings</string>
     <string name="photo">PHOTO</string>
     <string name="hub">HUB</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
+    <string name="searchh">Search 🔎</string>
 </resources>
