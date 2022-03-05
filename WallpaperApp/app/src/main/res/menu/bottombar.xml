@@ -5,16 +5,18 @@
         android:title="@string/images"
         android:icon="@drawable/ic_images_foreground"
         app:showAsAction="always"
-        android:id="@+id/images_icon"/>
+        android:id="@+id/imageFragment"/>
+
     <item
         android:title="@string/favourites"
         android:icon="@drawable/ic_favourites_foreground"
         app:showAsAction="always"
-        android:id="@+id/favourites_icon"/>
+        android:id="@+id/favouritesFragment"/>
+
     <item
         android:title="@string/search"
         android:icon="@drawable/ic_imagesearch_foreground"
         app:showAsAction="ifRoom"
-        android:id="@+id/search_images_icon"/>
+        android:id="@+id/searchFragment"/>
 
 </menu>

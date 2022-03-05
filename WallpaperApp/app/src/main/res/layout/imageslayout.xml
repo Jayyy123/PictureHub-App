@@ -4,20 +4,40 @@
     android:orientation="horizontal"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_weight="4"
-        android:id="@+id/imgholder"
-        android:src="@drawable/user"/>
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="110dp"-->
+<!--        android:layout_weight="4"-->
+<!--        android:id="@+id/imgholder"-->
+<!--        android:src="@drawable/user"/>-->
 
+<!--    <TextView-->
+<!--        android:id="@+id/decription"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="2"-->
+<!--        android:text="refinrfnrk rkr "-->
+<!--        android:textSize="50sp"/>-->
     <TextView
-        android:id="@+id/decription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/title"
+        android:textSize="21sp"
+        android:layout_margin="3dp"
+        android:layout_weight="2"
+        android:textStyle="bold"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:text="refinrfnrk rkr "
-        android:textSize="50sp"/>
+        android:layout_margin="3dp"
+        android:id="@+id/des"
+        android:textSize="17sp"/>
 
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:id="@+id/addfav"/>
 
 </LinearLayout>

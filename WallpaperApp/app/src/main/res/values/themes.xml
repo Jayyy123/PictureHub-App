@@ -17,4 +17,8 @@
     <!-- Primary brand color. -->
     <item name="colorPrimary">@color/white</item>
     </style>
+    <style name="button" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#162735</item>
+    </style>
 </resources>

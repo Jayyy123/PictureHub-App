@@ -5,56 +5,51 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jay.wallpaperapp.R
+import com.jay.wallpaperapp.data.dataClass.AddNew
+import com.jay.wallpaperapp.data.database.NoteDatabase
+import com.jay.wallpaperapp.data.repository.Notesrepository
+import com.jay.wallpaperapp.databinding.FragmentImageBinding
+import com.jay.wallpaperapp.presentation.ui.activity.MainActivity
+import com.jay.wallpaperapp.presentation.ui.adapters.ImageAdapter
+import com.jay.wallpaperapp.presentation.ui.viewmodel.ImageViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ImageFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ImageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ImageFragment : Fragment(R.layout.fragment_image) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    lateinit var binding: FragmentImageBinding
+    lateinit var imageAdapter: ImageAdapter
+    lateinit var vm: ImageViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding = FragmentImageBinding.bind(view)
+
+        imageAdapter = ImageAdapter()
+//        vm = ImageViewModel()
+
+        imageAdapter
+
+//        val pore = AddNew(1,"problem no dey finish","bruh")
+//        val pore1 = AddNew(2,"problem don dey finish","bruther")
+//        val pore2 = AddNew(3,"problem don finish","bruv")
+
+        imageAdapter.getId()
+        vm = (activity as MainActivity).iVM
+        vm.allNotes().observe(viewLifecycleOwner, Observer {
+            imageAdapter.noteList = it as ArrayList<AddNew>
+        })
+//        vm = ImageViewModel(Notesrepository(NoteDatabase.invoke(activity as MainActivity)))
+//        imageAdapter.noteList = vm.allNotes().observe()
+
+        binding.imagerecycler.adapter = imageAdapter
+        binding.imagerecycler.layoutManager = LinearLayoutManager(this.activity)
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ImageFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ImageFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }
