@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.jay.wallpaperapp.R
 import com.jay.wallpaperapp.databinding.FragmentAddBinding
 import com.jay.wallpaperapp.presentation.ui.activity.MainActivity
@@ -40,7 +41,9 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             val note = iVM.addNote(0,title,description)
             iVM.insertNote(note)
 
-            navController.navigate(R.id.action_addFragment_to_imageFragment)
+//            navController.navigate(R.id.action_addFragment_to_imageFragment)
+            Snackbar.make(view,"Your note has been saved",Snackbar.LENGTH_LONG).show()
+            nav.supportFragmentManager.beginTransaction().replace(this.id,ImageFragment()).commit()
 
         }
 
