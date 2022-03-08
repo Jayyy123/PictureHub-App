@@ -34,10 +34,11 @@
         android:id="@+id/des"
         android:textSize="17sp"/>
 
-    <RadioButton
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3"
+        android:checked="false"
         android:id="@+id/addfav"/>
 
 </LinearLayout>

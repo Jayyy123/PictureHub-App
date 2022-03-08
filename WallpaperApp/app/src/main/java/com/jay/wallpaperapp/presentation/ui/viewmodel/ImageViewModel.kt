@@ -19,5 +19,6 @@ class ImageViewModel(val notesrepository: Notesrepository):ViewModel() {
     fun allNotes() = notesrepository.getAllNotes()
 
     fun insertNote(note:AddNew) = viewModelScope.launch {  notesrepository.insertNote(note) }
+    fun deleteNote(note:AddNew) = viewModelScope.launch {  notesrepository.deleteNote(note) }
 
 }

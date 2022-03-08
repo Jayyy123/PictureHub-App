@@ -17,6 +17,7 @@ class ImageAdapter():RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
         var a = false
         var title = itemview.title
         var description = itemview.des
+        var del = itemview.addfav
 
         init {
             itemview.root.setOnClickListener{
@@ -36,6 +37,9 @@ class ImageAdapter():RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
 
         holder.title.text = currentPosition.title
         holder.description.text = currentPosition.description
+        if (holder.del.isChecked){
+            deletenote(currentPosition.id)
+        }
 
     }
 

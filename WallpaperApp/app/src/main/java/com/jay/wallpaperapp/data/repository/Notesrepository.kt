@@ -10,4 +10,6 @@ class Notesrepository(val anid:NoteDatabase) {
 
     suspend fun insertNote(note:AddNew) = anid.getAddNewDao().insert(note)
 
+    suspend fun deleteNote(note: AddNew) = anid.getAddNewDao().deletenote(note)
+
 }
