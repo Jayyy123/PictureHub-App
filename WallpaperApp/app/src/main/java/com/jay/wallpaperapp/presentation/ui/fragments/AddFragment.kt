@@ -29,11 +29,6 @@ class AddFragment : Fragment(R.layout.fragment_add) {
 
         binding = FragmentAddBinding.bind(view)
 
-        val title = binding.newtitle.text.toString()
-        val description = binding.newdes.text.toString()
-
-        Log.d(TAG,"The title added is $title")
-
         iVM = (activity as MainActivity).iVM
 
 
@@ -43,7 +38,11 @@ class AddFragment : Fragment(R.layout.fragment_add) {
 
         binding.addto.setOnClickListener {
 
+            val title = binding.newtitle.text.toString()
+            val description = binding.newdes.text.toString()
+
             if (title.isNotEmpty()) {
+
                 Log.d(TAG,"The title added is $title")
                 val note = iVM.addNote(0, title, description)
                 iVM.insertNote(note)
