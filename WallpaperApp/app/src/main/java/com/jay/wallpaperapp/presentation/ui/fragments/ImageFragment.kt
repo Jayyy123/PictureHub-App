@@ -1,6 +1,7 @@
 package com.jay.wallpaperapp.presentation.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.jay.wallpaperapp.databinding.FragmentImageBinding
 import com.jay.wallpaperapp.presentation.ui.activity.MainActivity
 import com.jay.wallpaperapp.presentation.ui.adapters.ImageAdapter
 import com.jay.wallpaperapp.presentation.ui.viewmodel.ImageViewModel
+import com.jay.wallpaperapp.utils.constants
 
 
 class ImageFragment : Fragment(R.layout.fragment_image) {
@@ -41,6 +43,7 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
         vm = (activity as MainActivity).iVM
         vm.allNotes().observe(viewLifecycleOwner, Observer {
             imageAdapter.noteList = it as ArrayList<AddNew>
+            Log.d(constants.TAG,"The database table values are $it")
         })
 //        vm = ImageViewModel(Notesrepository(NoteDatabase.invoke(activity as MainActivity)))
 //        imageAdapter.noteList = vm.allNotes().observe()

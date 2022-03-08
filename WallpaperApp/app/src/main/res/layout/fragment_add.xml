@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.ui.fragments.AddFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:padding="8dp"
-        android:layout_height="wrap_content">
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="40dp"
-        android:background="@drawable/button"
         android:id="@+id/newtitle"
-        android:layout_margin="5dp"
-        android:textSize="18sp"
-        android:paddingStart="4dp"
-        android:paddingEnd="1dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/newdes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/newdes"
-        android:paddingStart="4dp"
-        android:paddingEnd="1dp"
-        android:layout_weight="1"
-        android:layout_margin="5dp"
-        android:background="@drawable/button"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/addto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newtitle" />
 
-    </LinearLayout>
     <Button
         android:id="@+id/addto"
-        android:layout_width="90dp"
-        android:background="@drawable/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
         android:theme="@style/button"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-
-        android:text="Add"/>
-    </LinearLayout>
-
-
-</FrameLayout>
+        android:background="@drawable/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newdes" />
+</androidx.constraintlayout.widget.ConstraintLayout>

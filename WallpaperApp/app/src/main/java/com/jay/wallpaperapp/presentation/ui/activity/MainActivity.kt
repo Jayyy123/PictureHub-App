@@ -2,6 +2,7 @@ package com.jay.wallpaperapp.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 
@@ -23,6 +24,7 @@ import com.jay.wallpaperapp.presentation.ui.fragments.FavouritesFragment
 import com.jay.wallpaperapp.presentation.ui.fragments.ImageFragment
 import com.jay.wallpaperapp.presentation.ui.fragments.SearchFragment
 import com.jay.wallpaperapp.presentation.ui.viewmodel.ImageViewModel
+import com.jay.wallpaperapp.utils.constants
 
 class MainActivity : AppCompatActivity() {
 
