@@ -1,18 +1,30 @@
 package com.jay.wallpaperapp.presentation.ui.adapters
 
+import android.content.Context
 import android.media.Image
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
 import com.jay.wallpaperapp.R
 import com.jay.wallpaperapp.data.dataClass.AddNew
+import com.jay.wallpaperapp.data.database.NoteDatabase
+import com.jay.wallpaperapp.data.interfaces.AddNewInterfaceDao
+import com.jay.wallpaperapp.data.repository.Notesrepository
 import com.jay.wallpaperapp.databinding.ImageslayoutBinding
+import com.jay.wallpaperapp.presentation.ui.activity.MainActivity
+import com.jay.wallpaperapp.presentation.ui.viewmodel.ImageViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class ImageAdapter():RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
+class ImageAdapter(val context: Context):RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
 
     var noteList = ArrayList<AddNew>()
 
-    inner class NotesViewHolder(val itemview: ImageslayoutBinding ): RecyclerView.ViewHolder(itemview.root){
+    inner class NotesViewHolder(itemview: ImageslayoutBinding ): RecyclerView.ViewHolder(itemview.root){
 
         var a = false
         var title = itemview.title
@@ -22,9 +34,9 @@ class ImageAdapter():RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
         init {
             itemview.root.setOnClickListener{
                 noteList.removeAt(adapterPosition)
-                ImageAdapter().notifyItemRemoved(adapterPosition)
+                notifyItemRemoved(adapterPosition)
+//                deletenote(adapterPosition,context)
             }
-
         }
     }
 
@@ -38,7 +50,7 @@ class ImageAdapter():RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
         holder.title.text = currentPosition.title
         holder.description.text = currentPosition.description
         if (holder.del.isChecked){
-            deletenote(currentPosition.id)
+           suspend { deletenote(currentPosition.id, context)}
         }
 
     }
@@ -54,9 +66,9 @@ class ImageAdapter():RecyclerView.Adapter<ImageAdapter.NotesViewHolder>() {
 
     }
 
-    fun deletenote(position: Int){
-        ImageAdapter().noteList.removeAt(position)
-        ImageAdapter().notifyItemRemoved(position)
+    fun deletenote(position: Int, context: Context){
+        val note = noteList[position]
+        ImageViewModel(Notesrepository(NoteDatabase.invoke(context))).deleteNote(note)
     }
     fun getId(): Int{
         return this.noteList.size

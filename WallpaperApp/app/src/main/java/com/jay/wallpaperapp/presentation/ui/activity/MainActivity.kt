@@ -2,40 +2,30 @@ package com.jay.wallpaperapp.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.jay.wallpaperapp.R
 import com.jay.wallpaperapp.data.database.NoteDatabase
 import com.jay.wallpaperapp.data.repository.Notesrepository
 import com.jay.wallpaperapp.databinding.ActivityMainBinding
-import com.jay.wallpaperapp.presentation.ui.adapters.ImageAdapter
 import com.jay.wallpaperapp.presentation.ui.fragments.AddFragment
-import com.jay.wallpaperapp.presentation.ui.fragments.FavouritesFragment
 import com.jay.wallpaperapp.presentation.ui.fragments.ImageFragment
-import com.jay.wallpaperapp.presentation.ui.fragments.SearchFragment
 import com.jay.wallpaperapp.presentation.ui.viewmodel.ImageViewModel
-import com.jay.wallpaperapp.utils.constants
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var  navontroller: NavController
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration: AppBarConfiguration
+//    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var  toggle:ActionBarDrawerToggle
     lateinit var iVM:ImageViewModel
-    private lateinit var imageAdapter: ImageAdapter
-    private lateinit var search: SearchFragment
-    private lateinit var favourites: FavouritesFragment
+//    private lateinit var imageAdapter: ImageAdapter
+//    private lateinit var search: SearchFragment
+//    private lateinit var favourites: FavouritesFragment
     private lateinit var images: ImageFragment
     private lateinit var add: AddFragment
 

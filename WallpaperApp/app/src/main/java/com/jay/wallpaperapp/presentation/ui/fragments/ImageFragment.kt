@@ -25,12 +25,31 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
     lateinit var imageAdapter: ImageAdapter
     lateinit var vm: ImageViewModel
 
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//
+//
+//        imageAdapter = ImageAdapter()
+//        imageAdapter
+//        vm = (activity as MainActivity).iVM
+//
+//        vm.allNotes().observe(viewLifecycleOwner, Observer {
+//            imageAdapter.noteList = it as ArrayList<AddNew>
+//            Log.d(constants.TAG,"The database table values are $it")
+//        })
+//
+//        return super.onCreateView(inflater, container, savedInstanceState)
+//    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentImageBinding.bind(view)
 
-        imageAdapter = ImageAdapter()
+        imageAdapter = ImageAdapter(this.requireActivity())
 //        vm = ImageViewModel()
 
         imageAdapter
@@ -52,6 +71,21 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
         binding.imagerecycler.layoutManager = LinearLayoutManager(this.activity)
 
     }
+
+//    override fun onResume() {
+//        imageAdapter = ImageAdapter()
+//        imageAdapter
+//        vm = (activity as MainActivity).iVM
+//        super.onResume()
+//    }
+//
+//    override fun onStart() {
+//        imageAdapter = ImageAdapter()
+//        imageAdapter
+//        vm = (activity as MainActivity).iVM
+//        super.onStart()
+//    }
+
 
 
 

@@ -1,5 +1,6 @@
 package com.jay.wallpaperapp.presentation.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -51,8 +52,9 @@ class AddFragment : Fragment(R.layout.fragment_add) {
 
 //            navController.navigate(R.id.action_addFragment_to_imageFragment)
                 Snackbar.make(view, "Your note has been saved", Snackbar.LENGTH_LONG).show()
-                nav.supportFragmentManager.beginTransaction().replace(this.id, ImageFragment())
-                    .commit()
+//                nav.supportFragmentManager.beginTransaction().replace(this.id, ImageFragment())
+//                    .commit()
+                startActivity(Intent(this.activity,MainActivity::class.java))
             }else{
                 Snackbar.make(view, "Please fill in a title", Snackbar.LENGTH_SHORT).show()
             }
